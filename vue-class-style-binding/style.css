@@ -1,0 +1,22 @@
+
+.box{
+    width:200px;
+    height: 200px;
+    background-color:#dedede;
+    margin: auto;
+
+}
+.border{
+    border:3px dashed #000;
+
+}
+
+.red{
+    background-color:red;
+}
+.green{
+    background-color:green;
+}
+.yellow{
+    background-color:yellow;
+}

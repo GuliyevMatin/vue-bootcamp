@@ -1,0 +1,86 @@
+Reactivity - buna computed propslari daxildir,
+Computed-bir function kimi isleyen deyisenlerdir,deyisken kimi davranan method kimi tanimlanan yapilardir.
+Watch-birbasa data ve computed icindeki deyisenleri izleyir bir function kimi isleyir ve icine hemin datanin kohne ve yeni deyerin ala bilerik.
+
+---------------Life Cycle----------------
+eger instance uzerinde bir deyiseni istifade etmek isdirikse mounted() - hookunda istifade etmeliyik cunki
+dom yaradilmalidi ve o deyisen templatede yerin almalidirki ona uygun is gorulsun
+
+---------------Components contact----------------
+
+vue 3 ile bize gelen provide inject ile veri gondermek ve almaq cox asanlasirb
+provide(){ ile gonderirik
+return{
+key:value
+}
+}
+
+inject:["key"] ile tuturuq
+
+----------------components Slots------------------
+<test> bele slotu gonderib name slotslardi bunlar bu arada
+<template #title>
+test basliq
+</template>
+</test>
+
+<slot name="title" /> bele qarsiliyiriq
+
+---------------Dynamic components----------------
+componentler arasi kecisde hem stateleri hemde life hooklarimizi itirmemek ucun component tagini keep-alive taglari arasina aliriq ve bunu etdiyimiz zaman bize iki hook verir activated ve deactivated bunlarin sayesinde componente kecerken ne is gormek isdirikse edirik
+
+------------------Axios-------------
+intercepter - veri gondererken request getmemis onun kesir onun ustunde islemler ede bilirik ve response-dan gelerkende ede bilirik bunu -axios-un bbir ozlelliyidir
+
+main.jsde app.config.globalProperties.$axios = import edilen axios dedikde artiq global olaraq erise bilirik axiosa ve this.4axios kimi cagiririq
+
+----------------Vuex state managment-----------------
+npm install vuex@next --save :kimi yuklenir
+import {createStore} from "vuex" : import edilir
+const store=createStore({
+object qebul edir 
+})
+
+main.jsde ise - app.use(store) ederek componentlerde istifade ede bileceyimiz hala gelir
+
+cagirarkande bu plugin oldugu ucun this.$store
+
+Bir standart olusturmak ve bilgileri manupule etmek ucun staetleri bir basa deil ,  getters-lardan aliriq
+getters-in tek isi statedeki bilgileri bize geri dondurmekdir,alir bize verir
+
+mutations-lar anliq olaraq state icindeki deyeri deyisir senkron olaraq isleyir ve commit ile cagrilir
+
+actions-lar asnkron olaraq isleyir ve database ile iletisime kecildiyinde actionslardan istifade edilir ve dispatch ile cagrilir
+
+--------------------Vue-Router--------------------
+npm install vue-router@4 ile qurulur
+import {createRouter} from "vue-router"
+
+const router = createrouter({
+routes :[ ozune mexsus parametresidi
+{path:"/",component:}
+]
+})
+
+$router.push("path yolu") yada $router.push({
+}) yada bele route yonlendirme ede bilerik
+
+------------------Diger melumatlar -------------------
+Object.keys(myObject).forEach(key=>(myObject[key] = null))-bele etdikde object icindeki fieldlari sifirlamis oluruq yeni inputlari
+
+
+----------------composition API----------------
+Eger composition api ile potions api-ni birlikde istifade etmek istirikse setup() funksiyasin bilmeliyik ve bu funksiya data,beforeCreated,created methodlarinin yerine gelir neceki data icindeki etdiyimiz tanimlamalari burda tanimliya bilirik ve ele bir funksiyadirki beforecreated ve created hooklarindan once gelir ve bunun meqsedi ise odurki duzenlemeleri edib mount olunanda gosdersin,ve setup geriye object return edir....
+
+Compositon apide reactive olacaq herseyi ozumuz secmeliyik yoxsa buna icaze vermir bunun ucunde import {ref} from "vue" deyib reactive effect import edirik 
+
+ref bize bir object donderir ve ifade etdiyimiz boolen veya her hansi bir deyer onun value qisminde yerlesir meselem:
+const show = ref(false)->teyin edib -> show.value ile aliriq
+
+
+watch function ise icine izliyeceyimiz deyeri ve o deyerden donen new ve ol melumatlari alir:
+watch (variableName,(newValue,oldValue)=>{
+}) hetta izliyeceyimiz deyisskenler coxdursa array seklinde alinar
+
+deep watch - eger bir array ve onun icinde bir object ve onun icindede baska melumatlari deyiserken arrayin ozunun guncellenib guncellenmediyini bilmek ucundur
+

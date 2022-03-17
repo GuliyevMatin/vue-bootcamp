@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+  <body>
+    <div id="app">
+      <div class="box" :class="boxClasses" :style="{padding:20 + 'px'}"></div>
+
+      <button @click="red = !red">Qirmizi</button>
+      <button @click="green = !green">Yasil</button>
+      <button @click="yellow = !yellow">Sari</button>
+      <button @click="border = !border">Border</button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

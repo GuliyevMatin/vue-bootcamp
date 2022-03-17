@@ -1,0 +1,17 @@
+Vue cli download and create project
+npm install -g @vue/cli
+vue create projectname
+-------------------------------
+ESlint-codelarimi sekillendirmek ucun bize verilen bir package sistemdir,group seklinde isleyerken lazim olur
+
+
+---------------Components contact----------------
+
+vue 3 ile bize gelen provide inject ile veri gondermek ve almaq cox asanlasirb
+provide(){ ile gonderirik
+return{
+key:value
+}
+}
+
+inject:["key"] ile tuturuq
